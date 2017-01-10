@@ -1194,8 +1194,7 @@ MonoBehaviour:
   speed: 0.1
   rotaF: 0.3
   moveType: 0
-  simplebullet: {fileID: 1000010351614210, guid: 004711cc9a66f234bb43572612a45da3,
-    type: 2}
+  simplebullet: {fileID: 58199840, guid: 004711cc9a66f234bb43572612a45da3, type: 2}
   stayTime: 10
   cameraObject: {fileID: 0}
   CameraObj: {fileID: 1362163527}
