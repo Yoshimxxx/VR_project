@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "C:/Users/\u53CB\u5E0C/Documents/VR_project-master/VR_Contents/Assets/Scenes/Main.unity"
+- path: Assets/Scenes/Main.unity
   isLoaded: 1
   isActive: 1
