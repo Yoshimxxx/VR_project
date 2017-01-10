@@ -72,6 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDebugInfo.cs" />
+    <Compile Include="Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDemoManager.cs" />
+    <Compile Include="Assets\GoogleVR\DemoScenes\HeadsetDemo\Teleport.cs" />
     <Compile Include="Assets\GoogleVR\Legacy\Scripts\GvrHead.cs" />
     <Compile Include="Assets\GoogleVR\Legacy\Scripts\Internal\GvrCameraUtils.cs" />
     <Compile Include="Assets\GoogleVR\Legacy\Scripts\Internal\GvrEye.cs" />
