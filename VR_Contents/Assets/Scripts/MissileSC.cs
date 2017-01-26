@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MissileSC : MonoBehaviour {
 
-    GameObject Target;//着弾目標
+    public GameObject Target;//着弾目標
 
     private float _speed = 6.0f;    // 1秒間に進む距離
     private float _rotSpeed = 180.0f;  // 1秒間に回転する角度

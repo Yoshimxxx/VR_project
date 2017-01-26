@@ -7,11 +7,16 @@ public class Player : MonoBehaviour {
     public float speed = 0;
     public float rotaF;
 
+    public int rocktime=0;//ロックオン維持しているフレーム
+
     public int moveType = 0;
 
     public GameObject simplebullet;
+    public GameObject missile;//使うミサイル
+    public MissileSC CloneMissileSC;
     GameObject hassyakou;//バルカン発射口？
     GameObject hassyakou2;//バルカン発射口2？
+    GameObject targetOBJ;//ロックオンしたオブジェクト
 
     private int stayFire;
     public int stayTime = 20;
@@ -56,6 +61,7 @@ public class Player : MonoBehaviour {
             }
             Ray_RockOn();
             simplebullet_fire();
+            missile_fire();
         }
 	}
 
@@ -69,6 +75,20 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void missile_fire() //ミサイル？
+    {
+        if (Input.GetButton(buttonName: "Fire2") && stayFire == stayTime)
+        {
+            //ミサイルを発射＆発射したミサイルのSCを代入
+            CloneMissileSC = (MissileSC)Instantiate(missile, hassyakou.transform.position, hassyakou.transform.rotation);
+            if (targetOBJ != null)
+            {
+                CloneMissileSC.Target = targetOBJ;
+            }
+            stayFire = 0;
+        }
+    }
+
     void Ray_RockOn()
     {
         RaycastHit hit;
@@ -78,6 +98,16 @@ public class Player : MonoBehaviour {
             if (hit.collider.tag == "Enemy")//当たった物体がエネミー
             {
                 hit.transform.Rotate(0, 0, 20);
+                rocktime++;
+                if (rocktime > 100)//一定時間以上視点を合わせるとロックオン
+                {
+                    targetOBJ = hit.collider.gameObject;
+                }
+            }
+            else
+            {
+                rocktime = 0;
+                targetOBJ = null;
             }
                 
         }
