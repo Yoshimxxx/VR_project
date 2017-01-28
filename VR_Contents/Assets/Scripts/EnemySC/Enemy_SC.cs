@@ -11,6 +11,7 @@ public class Enemy_SC : MonoBehaviour {
     triggerSC mynavi_triggerSC;
 
     GameObject targetobj;
+    public GameObject bakuhatsu;
 
     public GameObject simple_bullet,hassyakou;
 	// Use this for initialization
@@ -50,9 +51,10 @@ public class Enemy_SC : MonoBehaviour {
         if (collision.gameObject.tag == "P_bullet")
         {
             HP--;
-            Destroy(collision.gameObject);
+            
             if (HP <= 0)
             {
+                Instantiate(bakuhatsu, transform.position, transform.rotation);
                 Destroy(this.gameObject);
             }
         }

@@ -6,6 +6,7 @@ public class simple_bullet_SC : MonoBehaviour {
     public float speed=1.0f;
     public int lifetime = 300;
     public int Timecount=0;
+    public GameObject bakuhatsu;
     float x;
     float y;
     float z;
@@ -28,6 +29,12 @@ public class simple_bullet_SC : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+    }
+
+    void OnCollisionEnter()
+    {
+        Instantiate(bakuhatsu, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
 

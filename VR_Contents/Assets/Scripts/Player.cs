@@ -7,10 +7,12 @@ public class Player : MonoBehaviour {
     public float speed = 0;
     public float rotaF;
 
+    public int HP=100;
     public int rocktime=0;//ロックオン維持しているフレーム
 
     public int moveType = 0;
 
+    public GameObject bakuhatsu;
     public GameObject simplebullet;
     public GameObject missile_prefab;//使うミサイルプレハブ
     GameObject missile;//発射したミサイル
@@ -125,7 +127,7 @@ public class Player : MonoBehaviour {
         }else if (collision.gameObject.tag=="E_bullet")
         {
             //被弾時のダメージ処理や敵弾の消滅処理
-            Destroy(collision.gameObject);
+            HP -= 5;
         }
     }
 }
