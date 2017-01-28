@@ -26,7 +26,7 @@ GameObject:
   - 54: {fileID: 54000011789668826}
   m_Layer: 2
   m_Name: E_bullet
-  m_TagString: Untagged
+  m_TagString: E_bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

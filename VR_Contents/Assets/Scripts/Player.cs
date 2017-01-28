@@ -12,11 +12,12 @@ public class Player : MonoBehaviour {
     public int moveType = 0;
 
     public GameObject simplebullet;
-    public GameObject missile;//使うミサイル
+    public GameObject missile_prefab;//使うミサイルプレハブ
+    GameObject missile;//発射したミサイル
     public MissileSC CloneMissileSC;
     GameObject hassyakou;//バルカン発射口？
     GameObject hassyakou2;//バルカン発射口2？
-    GameObject targetOBJ;//ロックオンしたオブジェクト
+    public GameObject targetOBJ;//ロックオンしたオブジェクト
 
     private int stayFire;
     public int stayTime = 20;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour {
         else
         {
             playerMove.Move(cameraObject, speed, moveType, rotaF);
-
+            
             if (stayFire < stayTime)
             {
                 stayFire++;
@@ -80,9 +81,10 @@ public class Player : MonoBehaviour {
         if (Input.GetButton(buttonName: "Fire2") && stayFire == stayTime)
         {
             //ミサイルを発射＆発射したミサイルのSCを代入
-            CloneMissileSC = (MissileSC)Instantiate(missile, hassyakou.transform.position, hassyakou.transform.rotation);
+            missile=Instantiate(missile_prefab,hassyakou.transform.position,hassyakou.transform.rotation)as GameObject;
             if (targetOBJ != null)
             {
+                CloneMissileSC = missile.GetComponent<MissileSC>();
                 CloneMissileSC.Target = targetOBJ;
             }
             stayFire = 0;
@@ -120,6 +122,10 @@ public class Player : MonoBehaviour {
         {
             start = false;
             GameObject.Find("CreateComet").GetComponent<CreateComet>().startTF = false;
+        }else if (collision.gameObject.tag=="E_bullet")
+        {
+            //被弾時のダメージ処理や敵弾の消滅処理
+            Destroy(collision.gameObject);
         }
     }
 }

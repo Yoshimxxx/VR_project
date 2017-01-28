@@ -122,6 +122,7 @@
     <Compile Include="Assets\GoogleVR\Legacy\Editor\StereoControllerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
     <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
     <None Include="Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
     <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />

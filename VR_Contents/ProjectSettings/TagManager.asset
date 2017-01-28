@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - NaviTrigger
   - P_bullet
-  - Ene
+  - E_bullet
   - Missile
   layers:
   - Default
