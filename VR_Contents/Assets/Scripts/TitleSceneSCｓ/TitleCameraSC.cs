@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TitleCameraSC : MonoBehaviour {
 
@@ -20,11 +21,11 @@ public class TitleCameraSC : MonoBehaviour {
         {
             if (hit.collider.name == "start_sprite")//当たった物体
             {
-                hit.transform.Rotate(0, 0, 5);
+                hit.transform.Rotate(0, 0, 3);
                 raytime++;
                 if (raytime > 100)//一定時間以上視点を合わせると
                 {
-                    
+                    SceneManager.LoadScene("Main");
                 }
             }
             else

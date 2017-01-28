@@ -22,4 +22,8 @@ public class triggerSC : MonoBehaviour {
             
         }
     }
+    void OnTriggerExit(Collider collider)
+    {
+        ontrigger = false;
+    }
 }
