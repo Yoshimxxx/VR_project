@@ -52,11 +52,15 @@ public class Enemy_SC : MonoBehaviour {
         {
             HP--;
             
-            if (HP <= 0)
-            {
-                Instantiate(bakuhatsu, transform.position, transform.rotation);
-                Destroy(this.gameObject);
-            }
+        }else if (collision.gameObject.tag == "Missile")
+        {
+            HP -= 20;
+        }
+
+        if (HP <= 0)
+        {
+            Instantiate(bakuhatsu, transform.position, transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class MissileSC : MonoBehaviour {
 
     public GameObject Target;//着弾目標
+    public GameObject bakuhatsu;
 
     private float _speed = 6.0f;    // 1秒間に進む距離
     private float _rotSpeed = 180.0f;  // 1秒間に回転する角度
@@ -38,4 +39,13 @@ public class MissileSC : MonoBehaviour {
         // 前進
         transform.position += transform.TransformDirection(0,0,5.0f) * _speed * Time.deltaTime;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        Instantiate(bakuhatsu, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+    }
 }
+
+

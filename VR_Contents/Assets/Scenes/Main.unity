@@ -900,7 +900,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012284805060, guid: 25bfec4582bf18843ad49347dab09b8b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000012018930340, guid: 25bfec4582bf18843ad49347dab09b8b, type: 2}
       propertyPath: m_TagString
@@ -1156,7 +1156,7 @@ Transform:
   - {fileID: 1960994468}
   - {fileID: 725536851}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1783971241
 MonoBehaviour:
   m_ObjectHideFlags: 0
