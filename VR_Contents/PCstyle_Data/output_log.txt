@@ -16,14 +16,14 @@ Platform assembly: C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCsty
 Loading C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCstyle_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCstyle_Data\Managed\Google.ProtocolBuffers.dll (this message is harmless)
 Loading C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCstyle_Data\Managed\Google.ProtocolBuffers.dll into Unity Child Domain
-- Completed reload, in  0.176 seconds
+- Completed reload, in  0.673 seconds
 Platform assembly: C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCstyle_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\友希\Documents\GitHub\VR_project\VR_Contents\PCstyle_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.234684 ms
+UnloadTime: 2.352717 ms
 InvalidOperationException: Unsupported device.
   at Gvr.Internal.BaseVRDevice.GetDevice () [0x00000] in <filename unknown>:0 
   at GvrViewer.InitDevice () [0x00000] in <filename unknown>:0 
@@ -47,10 +47,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 4d7ac -> priority: 1 
-  Thread -> id: 4d7dc -> priority: 1 
+  Thread -> id: 4049c -> priority: 1 
+  Thread -> id: 15ef4 -> priority: 1 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.265515 ms
+UnloadTime: 6.395210 ms
 InvalidOperationException: Unsupported device.
   at Gvr.Internal.BaseVRDevice.GetDevice () [0x00000] in <filename unknown>:0 
   at GvrViewer.InitDevice () [0x00000] in <filename unknown>:0 
@@ -65,25 +65,10 @@ NullReferenceException: Object reference not set to an instance of an object
 
 
 Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 370.
-Total: 0.569634 ms (FindLiveObjects: 0.052718 ms CreateObjectMapping: 0.056450 ms MarkObjects: 0.435273 ms  DeleteObjects: 0.023793 ms)
+Total: 0.551906 ms (FindLiveObjects: 0.045720 ms CreateObjectMapping: 0.055050 ms MarkObjects: 0.425476 ms  DeleteObjects: 0.024259 ms)
 
 WARNING: Shader Unsupported: 'HeatDistort' - Pass 'BASE' has no vertex shader
 WARNING: Shader Unsupported: 'HeatDistort' - All passes removed
-NullReferenceException: Object reference not set to an instance of an object
-  at GvrViewer.OnApplicationFocus (Boolean focus) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at GvrViewer.OnApplicationPause (Boolean pause) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at GvrViewer.OnApplicationPause (Boolean pause) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
 NullReferenceException: Object reference not set to an instance of an object
   at GvrViewer.OnApplicationQuit () [0x00000] in <filename unknown>:0 
  

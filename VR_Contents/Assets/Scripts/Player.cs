@@ -32,6 +32,9 @@ public class Player : MonoBehaviour {
 
     public GameObject CameraObj;
     public Camera camera;
+    AudioSource PlayerAS;
+    public AudioClip search, rockon;
+
 
 	// Use this for initialization
 	void Start ()
@@ -46,6 +49,8 @@ public class Player : MonoBehaviour {
 
         stayFire = stayTime;
         camera = CameraObj.GetComponent<Camera>();
+        //プレイヤーOBJにASを追加
+        PlayerAS = this.gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -106,12 +111,28 @@ public class Player : MonoBehaviour {
                 if (rocktime > 100)//一定時間以上視点を合わせるとロックオン
                 {
                     targetOBJ = hit.collider.gameObject;
+                    
                 }
+                else if (rocktime == 100)//目標フレーム到達時、ロックオン完了SE再生
+                {
+                    PlayerAS.Stop();
+                    PlayerAS.clip = rockon;
+                    PlayerAS.Play();
+                }else if (rocktime == 1)//ターゲット補足時サーチ開始SE再生
+                {
+                    PlayerAS.clip = search;
+                    PlayerAS.Play();
+                }
+                
             }
             else
             {
-                rocktime = 0;
-                targetOBJ = null;
+                if (rocktime != 0)
+                {
+                    rocktime = 0;
+                    targetOBJ = null;
+                    PlayerAS.Stop();
+                }
             }
                 
         }

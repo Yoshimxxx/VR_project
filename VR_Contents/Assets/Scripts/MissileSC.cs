@@ -42,9 +42,12 @@ public class MissileSC : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag != "E_bullet")
+        {
+            Instantiate(bakuhatsu, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
         
-        Instantiate(bakuhatsu, transform.position, transform.rotation);
-        Destroy(this.gameObject);
     }
 }
 

@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99a52afbdc68cd4fbc1c477cf05bbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   detonatorControlled: 1
   startSize: 1
   size: 1
@@ -211,7 +211,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0.875
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
