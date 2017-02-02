@@ -23,7 +23,7 @@ GameObject:
   - 23: {fileID: 23000010219634880}
   - 135: {fileID: 135000014034219734}
   - 54: {fileID: 54000012133850506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SComet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

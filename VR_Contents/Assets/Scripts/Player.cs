@@ -31,8 +31,7 @@ public class Player : MonoBehaviour {
     private PlayerMove playerMove;
 
     private int i = 0;
-
-    public GameObject CameraObj;
+    
     public Camera camera;
     AudioSource PlayerAS;
     public AudioClip search, rockon;
@@ -43,10 +42,15 @@ public class Player : MonoBehaviour {
 
     Image Rockon;
 
-	// Use this for initialization
-	void Start ()
+    public GameObject Marker;
+    GameObject MarkerOBJ;//インスタンスしたマーカーの格納先
+
+    // Use this for initialization
+    void Start ()
     {
         cameraObject = GameObject.Find("Main Camera");
+        camera = cameraObject.GetComponent<Camera>();
+
         hassyakou = transform.FindChild("hassyakou").gameObject;
         hassyakou2 = transform.FindChild("hassyakou2").gameObject;
 
@@ -55,16 +59,17 @@ public class Player : MonoBehaviour {
         transform.localPosition = Vector3.zero;
 
         stayFire = stayTime;
-        camera = CameraObj.GetComponent<Camera>();
+        
         //プレイヤーOBJにASを追加
         PlayerAS = this.gameObject.GetComponent<AudioSource>();
 
-        PlayerCanvas = transform.FindChild("PlayerCanvas").gameObject;
+        PlayerCanvas = cameraObject.transform.FindChild("PlayerCanvas").gameObject;
         HPtext = PlayerCanvas.transform.FindChild("HPtext").gameObject;
         Rockon = PlayerCanvas.transform.FindChild("RockonImage").gameObject.GetComponent<Image>();
 
         hp = HPtext.GetComponent<Text>();
         Rockon.sprite = Rockon1;
+        MarkerOBJ = Instantiate(Marker, transform.position, Quaternion.Euler(90, transform.eulerAngles.y, 0))as GameObject;
     }
 	
 	// Update is called once per frame
@@ -86,6 +91,7 @@ public class Player : MonoBehaviour {
             Ray_RockOn();
             simplebullet_fire();
             missile_fire();
+            RadarMarker();
         }
 	}
 
@@ -155,6 +161,12 @@ public class Player : MonoBehaviour {
                 
         }
         
+    }
+
+    void RadarMarker()
+    {
+        MarkerOBJ.transform.position = transform.position;
+        MarkerOBJ.transform.rotation = Quaternion.Euler(90, transform.eulerAngles.y, 0);
     }
 
     void OnCollisionEnter(Collision collision)

@@ -9,6 +9,7 @@ TagManager:
   - P_bullet
   - E_bullet
   - Missile
+  - Ene
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - 
   - 
   - bullet
-  - 
-  - 
+  - comet
+  - Radar
   - 
   - 
   - 

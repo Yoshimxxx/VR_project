@@ -14,11 +14,18 @@ public class Enemy_SC : MonoBehaviour {
     public GameObject bakuhatsu;
 
     public GameObject simple_bullet,hassyakou;
+
+    public GameObject Marker;
+    GameObject MarkerOBJ;//インスタンスしたマーカーの格納先
+
 	// Use this for initialization
 	void Start () {
+
         targetobj = GameObject.FindWithTag("Player");
         mynavi_trigger = gameObject.transform.FindChild("Navi_trigger").gameObject;
         mynavi_triggerSC = mynavi_trigger.transform.GetComponent<triggerSC>();
+
+        MarkerOBJ = Instantiate(Marker, transform.position, new Quaternion(90, 0, 0, 0))as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -39,12 +46,16 @@ public class Enemy_SC : MonoBehaviour {
         }
         mynavi_trigger.transform.LookAt(targetobj.transform);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, mynavi_trigger.transform.rotation, 0.1f);
-
+        RadarMarker();
         //naviの値を元に戻す
         
     }
 
-    
+    void RadarMarker()
+    {
+        MarkerOBJ.transform.position = transform.position;
+        MarkerOBJ.transform.rotation = Quaternion.Euler(90, transform.eulerAngles.y, 0);
+    }
 
     void OnCollisionEnter(Collision collision)
     {
