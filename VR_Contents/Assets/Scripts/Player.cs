@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour {
     GameObject hassyakou;//バルカン発射口？
     GameObject hassyakou2;//バルカン発射口2？
     public GameObject targetOBJ;//ロックオンしたオブジェクト
+    public Sprite Rockon1, Rockon2;//ロックオン用画像
 
     private int stayFire;
     public int stayTime = 20;
@@ -35,6 +37,11 @@ public class Player : MonoBehaviour {
     AudioSource PlayerAS;
     public AudioClip search, rockon;
 
+    GameObject PlayerCanvas;//プレイヤー用Canvas
+    GameObject HPtext;//プレイヤーCanvasの各種UI
+    Text hp;//テキスト系UIの格納変数
+
+    Image Rockon;
 
 	// Use this for initialization
 	void Start ()
@@ -51,6 +58,13 @@ public class Player : MonoBehaviour {
         camera = CameraObj.GetComponent<Camera>();
         //プレイヤーOBJにASを追加
         PlayerAS = this.gameObject.GetComponent<AudioSource>();
+
+        PlayerCanvas = transform.FindChild("PlayerCanvas").gameObject;
+        HPtext = PlayerCanvas.transform.FindChild("HPtext").gameObject;
+        Rockon = PlayerCanvas.transform.FindChild("RockonImage").gameObject.GetComponent<Image>();
+
+        hp = HPtext.GetComponent<Text>();
+        Rockon.sprite = Rockon1;
     }
 	
 	// Update is called once per frame
@@ -58,11 +72,13 @@ public class Player : MonoBehaviour {
         if (start != true)
         {
             start = GameObject.Find("CreateComet").GetComponent<CreateComet>().startTF;
+            hp.text = "準備中";
         }
         else
         {
             playerMove.Move(cameraObject, speed, moveType, rotaF);
-            
+            hp.text = HP.ToString();
+
             if (stayFire < stayTime)
             {
                 stayFire++;
@@ -118,6 +134,7 @@ public class Player : MonoBehaviour {
                     PlayerAS.Stop();
                     PlayerAS.clip = rockon;
                     PlayerAS.Play();
+                    Rockon.sprite = Rockon2;
                 }else if (rocktime == 1)//ターゲット補足時サーチ開始SE再生
                 {
                     PlayerAS.clip = search;
@@ -132,6 +149,7 @@ public class Player : MonoBehaviour {
                     rocktime = 0;
                     targetOBJ = null;
                     PlayerAS.Stop();
+                    Rockon.sprite = Rockon1;
                 }
             }
                 
